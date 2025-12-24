@@ -1,5 +1,5 @@
 # 📌 MAKEFILE CƠ BẢN
-# Phần 1: GIỚI THIỆU VỀ MAKEFILE
+# PHẦN 1: GIỚI THIỆU VỀ MAKEFILE
 - Bản chất makefile dùng để thực thi các command
 - Khi dùng makefile để rebuild một dự án, nó sẽ chỉ build lại những file đã thay đổi giúp giảm thời gian rebuild
 ---
@@ -49,18 +49,38 @@ void xinchao(){
     printf("hello anhquoc");
 }
 ```
+
+
 **Cách 1:**
-
+B1: Từng file.c build ra từng file .o B2: Link các file .o đó lại với nhau
 ```bash
-gcc main.c lib.c -o app
+--> gcc -c main.c -o main.o      -> Build ra file main.o
+--> gcc -c lib.c -o lib.o        -> Build ra file lib.o
+--> gcc main.o lib.o -o main.exe -> Build ra file main.exe là file để chạy của chương trình
 ```
-
+Trong đó:
+- `"-c"`: tạo ra các file object
+- `"-o"`: tạo ra file output
 
 **Cách 2:**
+Đơn giản hơn, chúng ta gộp các lệnh trên bằng việc dùng `"-I."`: gcc sẽ thực hiện tìm kiếm trong **thư mục hiện tại** `"."` để thêm các file header khác
+
+
+```bash
+--> gcc main.c lib.c -o main.exe -I.-> Build ra file main.exe là file chạy của chương trình
+```
+Nếu lib.h nằm trong thư mục con **include/**, bạn sẽ phải biên dịch bằng: 
+```bash
+gcc main.c lib.c -I include/ -o myprogram.
+```
+
+==> Nhận thấy rằng cả hai cách trên đều không clean với các dự án lơn --> Make file chính là để dùng cho trường hợp như vậy
+
+---
+## PHẦN 3: RULE CỦA MAKEFILE CƠ BẢN
 
 
 
-**Cách 3:**
 
 
 
