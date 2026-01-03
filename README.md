@@ -78,6 +78,38 @@ gcc main.c lib.c -I include/ -o myprogram.
 
 ---
 ## PHẦN 3: RULE CỦA MAKEFILE CƠ BẢN
+![](rule.jpg)
+
+- **Rule**: các rule cần thực hiện khi compile
+- **Dependency**: là các file cần thiết để tạo ra target
+- **Action**: là câu lệnh compile để tạo ra Target từ Dependency. Action được thụt lùi vào 1 Tab (phím tab trên bàn phím) so với Target
+- **Target**: Là tên của nhiệm vụ hoặc file mà bạn muốn make tạo ra
+
+## PHẦN 4: BIẾN TRONG MAKEFILE
+- Biến trong makefile được khởi tạo như sau
+```bash
+NAME = VALUE
+```
+- Biến được call bằng
+```bash
+${NAME} hoặc $(NAME)
+```
+## PHẦN 5: TẠO MỘT MAKEFILE CƠ BẢN
+
+```bash
+CC=gcc
+CFLAGS=-I.
+main: main.c lib.c
+    $(CC) main.c lib.c -o main.exe -I.
+```
+- Đoạn makefile trên sau khi chạy câu lệnh make main: thì sẽ cho ra main.exe: là file chạy của chương trình
+
+
+
+
+
+
+
 
 
 
